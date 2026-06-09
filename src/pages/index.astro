@@ -1,11 +1,14 @@
 ---
 import { ArrowRight, Code, FileText, Mail } from "@lucide/astro";
+import ProfilePanel from "../components/ProfilePanel.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   achievements,
+  highlights,
   profile,
+  profileStats,
   projects,
   researchInterests,
   skills,
@@ -19,7 +22,7 @@ const featuredAchievements = achievements.slice(0, 3);
 <BaseLayout title="首页" description="个人学术简历、研究方向、项目成果与竞赛荣誉展示。">
   <section class="home-hero">
     <div class="hero-copy">
-      <span class="eyebrow">Academic Portfolio</span>
+      <span class="eyebrow">Academic Portfolio · GitHub Pages</span>
       <h1>{profile.name}</h1>
       <p class="hero-title">{profile.title}</p>
       <p class="hero-summary">{profile.summary}</p>
@@ -37,18 +40,44 @@ const featuredAchievements = achievements.slice(0, 3);
           联系
         </a>
       </div>
+      <dl class="hero-stat-strip">
+        {
+          profileStats.map((stat) => (
+            <div>
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
     </div>
-    <figure class="profile-visual">
-      <img src={withBase("images/profile-placeholder.svg")} alt="个人头像占位图" />
-      <figcaption>{profile.location}</figcaption>
-    </figure>
+    <ProfilePanel />
+  </section>
+
+  <section class="content-section highlight-section">
+    <SectionTitle
+      eyebrow="Highlights"
+      title="展示重点"
+      description="把研究兴趣、工程实践和表达能力组织成可扫描的首页入口。"
+    />
+    <div class="highlight-grid">
+      {
+        highlights.map((item) => (
+          <article>
+            <span>{item.label}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
   </section>
 
   <section class="content-section">
     <SectionTitle
       eyebrow="Focus"
       title="研究与实践方向"
-      description="用简短标签概括当前关注的学术问题、工程系统和可展示能力。"
+      description="用标签快速呈现当前关注的问题域、方法和工程输出。"
     />
     <div class="interest-grid">
       {researchInterests.map((interest) => <span>{interest}</span>)}
@@ -59,7 +88,7 @@ const featuredAchievements = achievements.slice(0, 3);
     <SectionTitle
       eyebrow="Projects"
       title="代表项目"
-      description="项目卡片先使用占位内容，后续可替换为真实截图、代码仓库和演示链接。"
+      description="用项目周期、承担角色和产出结果补足项目可信度，而不只是罗列技术栈。"
     />
     <div class="project-grid">
       {featuredProjects.map((project) => <ProjectCard project={project} />)}
@@ -70,7 +99,7 @@ const featuredAchievements = achievements.slice(0, 3);
     </a>
   </section>
 
-  <section class="content-section two-column">
+  <section class="content-section two-column index-summary">
     <div>
       <SectionTitle eyebrow="Skills" title="能力结构" />
       <div class="skill-stack">

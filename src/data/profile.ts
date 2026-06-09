@@ -3,6 +3,18 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type ProfileStat = {
+  value: string;
+  label: string;
+  description: string;
+};
+
+export type Highlight = {
+  label: string;
+  title: string;
+  description: string;
+};
+
 export type EducationItem = {
   school: string;
   degree: string;
@@ -13,6 +25,10 @@ export type EducationItem = {
 export type Project = {
   title: string;
   summary: string;
+  period: string;
+  status: string;
+  role: string;
+  outcome: string;
   tags: string[];
   image: string;
   githubUrl?: string;
@@ -35,11 +51,52 @@ export const profile = {
   title: "本科生 / 研究兴趣：智能系统、数据分析与工程建模",
   location: "中国",
   summary:
-    "这里填写一段 80-120 字的个人简介，概括你的研究方向、工程能力、项目经历和当前目标。首版先使用占位内容，后续可以直接在这个文件中替换。",
+    "面向智能系统、工程建模与数据分析方向持续积累项目经验，关注从问题抽象、算法实现到可视化表达的完整闭环。",
+  statusLine: "开放科研训练、工程项目与竞赛合作机会",
+  avatar: "images/profile-placeholder.svg",
   email: "your.email@example.com",
-  githubUrl: "https://github.com/your-username",
+  githubUrl: "https://github.com/KH1926",
   cvUrl: "",
 };
+
+export const profileStats: ProfileStat[] = [
+  {
+    value: "4",
+    label: "研究方向",
+    description: "智能制造、优化建模、数据可视化与 Web 工程",
+  },
+  {
+    value: "3+",
+    label: "项目模块",
+    description: "工程系统、建模分析、可视化表达",
+  },
+  {
+    value: "2026",
+    label: "持续更新",
+    description: "用于集中沉淀简历、项目与成果材料",
+  },
+];
+
+export const highlights: Highlight[] = [
+  {
+    label: "Research",
+    title: "问题建模与实验验证",
+    description:
+      "从实际约束中抽象变量、目标与评价指标，并用程序验证模型结果。",
+  },
+  {
+    label: "Engineering",
+    title: "从算法到可展示系统",
+    description:
+      "关注数据处理、交互界面、文档说明和部署流程之间的工程一致性。",
+  },
+  {
+    label: "Communication",
+    title: "面向汇报的表达组织",
+    description:
+      "将复杂项目压缩为可复核的图表、结论、贡献说明和展示页面。",
+  },
+];
 
 export const education: EducationItem[] = [
   {
@@ -84,15 +141,23 @@ export const projects: Project[] = [
   {
     title: "智能生产管控 MES 系统",
     summary:
-      "围绕生产计划、设备状态、工序调度和仿真验证构建的工程系统展示项目，可替换为真实项目描述。",
+      "围绕生产计划、设备状态、工序调度和仿真验证构建的工程系统展示项目。",
+    period: "2025 - 2026",
+    status: "进行中",
+    role: "系统设计 / 后端验证 / 展示材料",
+    outcome: "形成可演示的业务流程、仿真接口和设计说明结构。",
     tags: ["MES", "调度", "仿真", "Web"],
     image: "images/project-system.svg",
-    githubUrl: "https://github.com/your-username/project",
+    githubUrl: "https://github.com/KH1926/personal-web",
   },
   {
     title: "数学建模与优化分析",
     summary:
       "展示建模思路、算法实现、数据处理、可视化输出与论文结果一致性检查等综合能力。",
+    period: "2024 - 2026",
+    status: "可整理",
+    role: "建模分析 / 程序实现 / 结果审查",
+    outcome: "沉淀多轮 review、图表生成和论文-程序一致性检查流程。",
     tags: ["数学建模", "优化", "Python", "可视化"],
     image: "images/project-modeling.svg",
   },
@@ -100,6 +165,10 @@ export const projects: Project[] = [
     title: "数据分析与可视化作品",
     summary:
       "面向科研汇报或工程决策的数据分析页面，强调信息结构、图表表达与结论可解释性。",
+    period: "2025 - 至今",
+    status: "持续更新",
+    role: "数据清洗 / 图表设计 / 结论表达",
+    outcome: "输出适合论文、汇报和网页展示的结构化图表材料。",
     tags: ["数据分析", "可视化", "Dashboard"],
     image: "images/project-visual.svg",
   },

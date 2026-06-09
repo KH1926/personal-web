@@ -1,4 +1,5 @@
 ---
+import ProfilePanel from "../components/ProfilePanel.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import TimelineItem from "../components/TimelineItem.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -6,10 +7,13 @@ import { education, profile, researchInterests, skills } from "../data/profile";
 ---
 
 <BaseLayout title="简历" description="个人教育经历、研究方向、技能结构和经历摘要。">
-  <section class="page-heading">
-    <span class="eyebrow">Resume</span>
-    <h1>简历</h1>
-    <p>{profile.summary}</p>
+  <section class="page-heading resume-heading">
+    <div>
+      <span class="eyebrow">Resume</span>
+      <h1>简历</h1>
+      <p>{profile.summary}</p>
+    </div>
+    <ProfilePanel />
   </section>
 
   <section class="content-section">
@@ -62,7 +66,7 @@ import { education, profile, researchInterests, skills } from "../data/profile";
           下载 PDF 简历
         </a>
       ) : (
-        <p>PDF 简历链接尚未配置。后续可在 `src/data/profile.ts` 的 `cvUrl` 字段中填写。</p>
+        <p>当前展示以网页简历为主，PDF 简历可在准备好后补充到资料链接中。</p>
       )
     }
   </section>

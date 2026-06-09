@@ -11,7 +11,10 @@ const { type, items } = Astro.props;
 ---
 
 <section class="achievement-group" aria-labelledby={`achievement-${type}`}>
-  <h2 id={`achievement-${type}`}>{type}</h2>
+  <div class="achievement-group-heading">
+    <h2 id={`achievement-${type}`}>{type}</h2>
+    <span>{items.length} 项</span>
+  </div>
   <div class="achievement-list">
     {
       items.map((item) => (

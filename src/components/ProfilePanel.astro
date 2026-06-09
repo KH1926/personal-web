@@ -1,0 +1,41 @@
+---
+import { Code, Mail, MapPin } from "@lucide/astro";
+import { profile, profileStats } from "../data/profile";
+import { withBase } from "../utils/paths";
+---
+
+<aside class="profile-panel" aria-label="个人资料概览">
+  <img src={withBase(profile.avatar)} alt="个人头像占位图" />
+  <div class="profile-panel-body">
+    <span class="status-pill">{profile.statusLine}</span>
+    <h2>{profile.name}</h2>
+    <p>{profile.title}</p>
+    <div class="profile-meta">
+      <span>
+        <MapPin size={16} aria-hidden="true" />
+        {profile.location}
+      </span>
+      <a href={`mailto:${profile.email}`}>
+        <Mail size={16} aria-hidden="true" />
+        邮箱
+      </a>
+      <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+        <Code size={16} aria-hidden="true" />
+        GitHub
+      </a>
+    </div>
+  </div>
+  <dl class="profile-stats">
+    {
+      profileStats.map((stat) => (
+        <div>
+          <dt>{stat.value}</dt>
+          <dd>
+            <strong>{stat.label}</strong>
+            <span>{stat.description}</span>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</aside>

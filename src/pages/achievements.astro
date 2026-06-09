@@ -5,20 +5,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { achievements, type AchievementType } from "../data/profile";
 
 const achievementTypes: AchievementType[] = ["论文", "竞赛", "奖项", "荣誉"];
+const achievementCounts = achievementTypes.map((type) => ({
+  type,
+  count: achievements.filter((item) => item.type === type).length,
+}));
 ---
 
 <BaseLayout title="成果" description="论文、竞赛、奖项和荣誉等学术与实践成果展示。">
   <section class="page-heading">
     <span class="eyebrow">Achievements</span>
     <h1>成果与荣誉</h1>
-    <p>集中展示论文、竞赛、奖项和其他可公开证明个人能力的经历。</p>
+    <p>用统一结构展示论文、竞赛、奖项和荣誉，突出经历来源、时间和可公开说明的贡献。</p>
+    <dl class="page-count-row">
+      {
+        achievementCounts.map((item) => (
+          <div>
+            <dt>{item.count}</dt>
+            <dd>{item.type}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </section>
 
   <section class="content-section">
     <SectionTitle
       eyebrow="Outputs"
       title="分类成果"
-      description="首版使用占位条目，后续可直接在数据文件中替换为真实成果。"
+      description="每一类成果保留清晰的来源、日期和摘要，方便之后扩展为正式论文或证书链接。"
     />
     <div class="achievement-page">
       {
