@@ -5,4 +5,5 @@ dist/
 .env.*
 *.log
 .devserver.*.log
+.gh-auth.*.log
 sqlite_mcp_server.db
