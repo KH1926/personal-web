@@ -1,0 +1,21 @@
+---
+import { Code, Mail } from "@lucide/astro";
+import { profile } from "../data/profile";
+---
+
+<footer class="site-footer">
+  <div>
+    <strong>{profile.name}</strong>
+    <span>个人学术简历与项目成果展示</span>
+  </div>
+  <div class="footer-links">
+    <a href={`mailto:${profile.email}`}>
+      <Mail size={16} aria-hidden="true" />
+      邮箱
+    </a>
+    <a href={profile.githubUrl} target="_blank" rel="noreferrer">
+      <Code size={16} aria-hidden="true" />
+      GitHub
+    </a>
+  </div>
+</footer>

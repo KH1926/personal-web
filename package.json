@@ -1,0 +1,21 @@
+{
+  "name": "personal-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev": "node ./scripts/astro-cli.mjs dev",
+    "build": "node ./scripts/astro-cli.mjs build",
+    "preview": "node ./scripts/astro-cli.mjs preview",
+    "check": "node ./scripts/astro-cli.mjs check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@lucide/astro": "^1.17.0",
+    "astro": "^5.0.0",
+    "typescript": "^5.7.0"
+  }
+}

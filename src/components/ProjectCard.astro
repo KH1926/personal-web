@@ -1,0 +1,40 @@
+---
+import { ArrowUpRight, Code } from "@lucide/astro";
+import type { Project } from "../data/profile";
+import { withBase } from "../utils/paths";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <img src={withBase(project.image)} alt={`${project.title} 项目占位图`} loading="lazy" />
+  <div class="project-card-body">
+    <h3>{project.title}</h3>
+    <p>{project.summary}</p>
+    <ul class="tag-list" aria-label={`${project.title} 技术标签`}>
+      {project.tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    <div class="card-actions">
+      {
+        project.githubUrl && (
+          <a href={project.githubUrl} target="_blank" rel="noreferrer">
+            <Code size={16} aria-hidden="true" />
+            代码
+          </a>
+        )
+      }
+      {
+        project.demoUrl && (
+          <a href={project.demoUrl} target="_blank" rel="noreferrer">
+            <ArrowUpRight size={16} aria-hidden="true" />
+            演示
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

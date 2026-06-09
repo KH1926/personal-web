@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">数学建模项目占位图</title>
+  <desc id="desc">展示模型曲线、坐标轴和优化结果的项目占位图。</desc>
+  <rect width="960" height="600" fill="#f7f8f5"/>
+  <rect x="88" y="74" width="784" height="452" rx="18" fill="#ffffff" stroke="#dbe2da" stroke-width="4"/>
+  <path d="M170 440V150M170 440h650" stroke="#202520" stroke-width="6" stroke-linecap="round"/>
+  <path d="M190 390c70-120 126-136 190-80s110 44 164-74 132-122 236-18" fill="none" stroke="#2f6f5e" stroke-width="12" stroke-linecap="round"/>
+  <path d="M190 336c86-34 166-38 240-12s142 22 210-14 118-50 180-24" fill="none" stroke="#315f8d" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="380" cy="310" r="18" fill="#9a6a20"/>
+  <circle cx="602" cy="238" r="18" fill="#9a6a20"/>
+  <rect x="618" y="354" width="150" height="54" rx="10" fill="#f4ead8"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">工程系统项目占位图</title>
+  <desc id="desc">展示仪表盘、流程节点和系统状态的项目占位图。</desc>
+  <rect width="960" height="600" fill="#eef2ed"/>
+  <rect x="80" y="70" width="800" height="460" rx="18" fill="#ffffff" stroke="#dbe2da" stroke-width="4"/>
+  <rect x="120" y="118" width="190" height="330" rx="12" fill="#dcebe5"/>
+  <rect x="350" y="118" width="470" height="84" rx="12" fill="#f4ead8"/>
+  <rect x="350" y="238" width="206" height="160" rx="12" fill="#ffffff" stroke="#315f8d" stroke-width="5"/>
+  <rect x="614" y="238" width="206" height="160" rx="12" fill="#ffffff" stroke="#2f6f5e" stroke-width="5"/>
+  <path d="M152 178h126M152 232h96M152 286h130M152 340h88" stroke="#2f6f5e" stroke-width="12" stroke-linecap="round"/>
+  <path d="M390 166h260M390 310h118M654 310h118" stroke="#9a6a20" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="452" cy="360" r="18" fill="#315f8d"/>
+  <circle cx="716" cy="360" r="18" fill="#2f6f5e"/>
+</svg>

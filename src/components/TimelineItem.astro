@@ -1,0 +1,19 @@
+---
+type Props = {
+  period: string;
+  title: string;
+  subtitle: string;
+  description: string;
+};
+
+const { period, title, subtitle, description } = Astro.props;
+---
+
+<article class="timeline-item">
+  <time>{period}</time>
+  <div>
+    <h3>{title}</h3>
+    <strong>{subtitle}</strong>
+    <p>{description}</p>
+  </div>
+</article>

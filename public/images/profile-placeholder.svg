@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">个人头像占位图</title>
+  <desc id="desc">用于个人学术简历网站的可替换头像占位图。</desc>
+  <rect width="640" height="800" fill="#eef2ed"/>
+  <rect x="70" y="74" width="500" height="652" rx="24" fill="#ffffff" stroke="#dbe2da" stroke-width="4"/>
+  <circle cx="320" cy="270" r="98" fill="#dcebe5" stroke="#2f6f5e" stroke-width="8"/>
+  <path d="M170 590c27-101 102-154 150-154s123 53 150 154" fill="#f4ead8" stroke="#9a6a20" stroke-width="8"/>
+  <path d="M160 132h320M160 668h320" stroke="#315f8d" stroke-width="10" stroke-linecap="round"/>
+  <path d="M194 714h252" stroke="#2f6f5e" stroke-width="8" stroke-linecap="round"/>
+</svg>

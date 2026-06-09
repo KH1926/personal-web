@@ -1,0 +1,69 @@
+---
+import SectionTitle from "../components/SectionTitle.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { education, profile, researchInterests, skills } from "../data/profile";
+---
+
+<BaseLayout title="简历" description="个人教育经历、研究方向、技能结构和经历摘要。">
+  <section class="page-heading">
+    <span class="eyebrow">Resume</span>
+    <h1>简历</h1>
+    <p>{profile.summary}</p>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle
+      eyebrow="Education"
+      title="教育与训练经历"
+      description="这里集中展示教育背景、研究训练、课程实践和可公开说明的阶段成果。"
+    />
+    <div class="timeline">
+      {
+        education.map((item) => (
+          <TimelineItem
+            period={item.period}
+            title={item.school}
+            subtitle={item.degree}
+            description={item.description}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="content-section two-column">
+    <div>
+      <SectionTitle eyebrow="Research" title="研究兴趣" />
+      <div class="interest-grid compact">
+        {researchInterests.map((interest) => <span>{interest}</span>)}
+      </div>
+    </div>
+    <div>
+      <SectionTitle eyebrow="Skills" title="技能结构" />
+      <div class="skill-stack">
+        {
+          skills.map((skill) => (
+            <article>
+              <h3>{skill.group}</h3>
+              <p>{skill.items.join(" / ")}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section resume-note">
+    <SectionTitle eyebrow="Profile" title="简历文件" />
+    {
+      profile.cvUrl ? (
+        <a class="button primary" href={profile.cvUrl} target="_blank" rel="noreferrer">
+          下载 PDF 简历
+        </a>
+      ) : (
+        <p>PDF 简历链接尚未配置。后续可在 `src/data/profile.ts` 的 `cvUrl` 字段中填写。</p>
+      )
+    }
+  </section>
+</BaseLayout>

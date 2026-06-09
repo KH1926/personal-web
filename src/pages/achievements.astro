@@ -1,0 +1,34 @@
+---
+import AchievementGroup from "../components/AchievementGroup.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { achievements, type AchievementType } from "../data/profile";
+
+const achievementTypes: AchievementType[] = ["论文", "竞赛", "奖项", "荣誉"];
+---
+
+<BaseLayout title="成果" description="论文、竞赛、奖项和荣誉等学术与实践成果展示。">
+  <section class="page-heading">
+    <span class="eyebrow">Achievements</span>
+    <h1>成果与荣誉</h1>
+    <p>集中展示论文、竞赛、奖项和其他可公开证明个人能力的经历。</p>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle
+      eyebrow="Outputs"
+      title="分类成果"
+      description="首版使用占位条目，后续可直接在数据文件中替换为真实成果。"
+    />
+    <div class="achievement-page">
+      {
+        achievementTypes.map((type) => (
+          <AchievementGroup
+            type={type}
+            items={achievements.filter((item) => item.type === type)}
+          />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

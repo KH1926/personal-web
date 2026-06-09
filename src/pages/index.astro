@@ -1,0 +1,106 @@
+---
+import { ArrowRight, Code, FileText, Mail } from "@lucide/astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  achievements,
+  profile,
+  projects,
+  researchInterests,
+  skills,
+} from "../data/profile";
+import { withBase } from "../utils/paths";
+
+const featuredProjects = projects.slice(0, 2);
+const featuredAchievements = achievements.slice(0, 3);
+---
+
+<BaseLayout title="首页" description="个人学术简历、研究方向、项目成果与竞赛荣誉展示。">
+  <section class="home-hero">
+    <div class="hero-copy">
+      <span class="eyebrow">Academic Portfolio</span>
+      <h1>{profile.name}</h1>
+      <p class="hero-title">{profile.title}</p>
+      <p class="hero-summary">{profile.summary}</p>
+      <div class="hero-actions">
+        <a class="button primary" href={withBase("resume/")}>
+          <FileText size={18} aria-hidden="true" />
+          查看简历
+        </a>
+        <a class="button" href={profile.githubUrl} target="_blank" rel="noreferrer">
+          <Code size={18} aria-hidden="true" />
+          GitHub
+        </a>
+        <a class="button" href={`mailto:${profile.email}`}>
+          <Mail size={18} aria-hidden="true" />
+          联系
+        </a>
+      </div>
+    </div>
+    <figure class="profile-visual">
+      <img src={withBase("images/profile-placeholder.svg")} alt="个人头像占位图" />
+      <figcaption>{profile.location}</figcaption>
+    </figure>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle
+      eyebrow="Focus"
+      title="研究与实践方向"
+      description="用简短标签概括当前关注的学术问题、工程系统和可展示能力。"
+    />
+    <div class="interest-grid">
+      {researchInterests.map((interest) => <span>{interest}</span>)}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle
+      eyebrow="Projects"
+      title="代表项目"
+      description="项目卡片先使用占位内容，后续可替换为真实截图、代码仓库和演示链接。"
+    />
+    <div class="project-grid">
+      {featuredProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+    <a class="text-link" href={withBase("projects/")}>
+      查看全部项目
+      <ArrowRight size={16} aria-hidden="true" />
+    </a>
+  </section>
+
+  <section class="content-section two-column">
+    <div>
+      <SectionTitle eyebrow="Skills" title="能力结构" />
+      <div class="skill-stack">
+        {
+          skills.map((skill) => (
+            <article>
+              <h3>{skill.group}</h3>
+              <p>{skill.items.join(" / ")}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div>
+      <SectionTitle eyebrow="Outputs" title="近期成果" />
+      <div class="compact-list">
+        {
+          featuredAchievements.map((item) => (
+            <article>
+              <span>{item.type} · {item.date}</span>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+            </article>
+          ))
+        }
+      </div>
+      <a class="text-link" href={withBase("achievements/")}>
+        查看全部成果
+        <ArrowRight size={16} aria-hidden="true" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

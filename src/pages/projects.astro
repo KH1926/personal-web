@@ -1,0 +1,25 @@
+---
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projects } from "../data/profile";
+---
+
+<BaseLayout title="项目" description="个人项目、工程实践、建模分析和可视化作品展示。">
+  <section class="page-heading">
+    <span class="eyebrow">Projects</span>
+    <h1>项目展示</h1>
+    <p>这里展示可公开的工程项目、研究训练、建模分析和数据可视化作品。</p>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle
+      eyebrow="Selected Work"
+      title="代表项目"
+      description="每个项目都可以补充真实截图、GitHub 仓库、在线演示和你的具体贡献。"
+    />
+    <div class="project-grid full">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>
