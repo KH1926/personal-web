@@ -399,13 +399,74 @@ p {
 
 .resume-heading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 30px;
   align-items: start;
+  padding-top: 28px;
+  padding-bottom: 18px;
 }
 
 .resume-heading .profile-panel {
   box-shadow: none;
+}
+
+.compact-profile-panel {
+  grid-template-rows: auto auto;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 12px;
+}
+
+.compact-profile-panel > img {
+  width: 76px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.compact-profile-panel .profile-panel-body {
+  gap: 8px;
+  padding: 0;
+}
+
+.compact-profile-panel .status-pill {
+  max-width: 100%;
+}
+
+.compact-profile-panel .profile-panel-body p {
+  display: none;
+}
+
+.compact-profile-panel .profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.compact-profile-panel .profile-stats {
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+}
+
+.compact-profile-panel .profile-stats div {
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 8px;
+}
+
+.compact-profile-panel .profile-stats dt {
+  font-size: 1.15rem;
+}
+
+.compact-profile-panel .profile-stats dd {
+  font-size: 0.82rem;
+}
+
+.compact-profile-panel .profile-stats dd span {
+  display: none;
 }
 
 .section-title {
@@ -654,7 +715,9 @@ p {
 
 .achievement-page {
   display: grid;
-  gap: 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 18px;
+  max-width: 980px;
 }
 
 .achievement-group-heading {
@@ -678,20 +741,31 @@ p {
 }
 
 .achievement-list {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .achievement-item {
-  padding: 18px;
+  padding: 16px;
+  border-left: 3px solid var(--blue);
 }
 
 .achievement-meta {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   margin-bottom: 10px;
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+
+.achievement-item h3 {
+  margin-bottom: 6px;
+}
+
+.achievement-item p {
+  margin-bottom: 0;
 }
 
 .achievement-item a {
@@ -738,6 +812,7 @@ p {
   .two-column,
   .project-grid,
   .project-grid.full,
+  .achievement-page,
   .achievement-list {
     grid-template-columns: 1fr;
   }
@@ -753,6 +828,10 @@ p {
 
   .profile-panel {
     max-width: 460px;
+  }
+
+  .compact-profile-panel {
+    max-width: none;
   }
 
   .highlight-grid {
@@ -808,6 +887,8 @@ p {
   }
 
   .profile-stats div,
+  .compact-profile-panel,
+  .compact-profile-panel .profile-stats,
   .timeline-item {
     grid-template-columns: 1fr;
   }

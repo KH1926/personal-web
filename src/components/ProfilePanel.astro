@@ -2,9 +2,18 @@
 import { Code, Mail, MapPin } from "@lucide/astro";
 import { profile, profileStats } from "../data/profile";
 import { withBase } from "../utils/paths";
+
+type Props = {
+  compact?: boolean;
+};
+
+const { compact = false } = Astro.props;
 ---
 
-<aside class="profile-panel" aria-label="个人资料概览">
+<aside
+  class={`profile-panel${compact ? " compact-profile-panel" : ""}`}
+  aria-label="个人资料概览"
+>
   <img src={withBase(profile.avatar)} alt="个人头像占位图" />
   <div class="profile-panel-body">
     <span class="status-pill">{profile.statusLine}</span>
